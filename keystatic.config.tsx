@@ -15,7 +15,7 @@ export default config({
       }
     : {
         kind: 'github',
-        repo: 'Frikadellios/devopsick'
+        repo: 'JaneSchool/jane-school-project'
       },
   ui: {
     brand: { name: configs.website.title },
