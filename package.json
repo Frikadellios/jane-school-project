@@ -1,0 +1,85 @@
+{
+  "name": "jane-school-project",
+  "type": "module",
+  "version": "1.0.1",
+  "packageManager": "bun@1.1.26",
+  "private": true,
+  "keywords": [
+    "template",
+    "biomejs",
+    "bun",
+    "typescript",
+    "tailwindcss",
+    "astrojs",
+    "react",
+    "shadcn"
+  ],
+  "author": "Hrihorii Ilin <devopsick@pm.me>",
+  "description": "Gift for Jane",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Frikadellios/jane-school-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Frikadellios/jane-school-project/issues"
+  },
+  "homepage": "https://github.com/Frikadellios/jane-scholl-project#readme",
+  "engines": {
+    "node": ">=20.17.0"
+  },
+  "scripts": {
+    "editorconfig": "editorconfig-checker -exclude \"**/node_modules/**\"",
+    "browserslist": "bunx update-browserslist-db@latest",
+    "dev": "bunx --bun astro dev --verbose",
+    "start": "bun wrangler types && bun astro check --verbose && bunx --bun astro dev --verbose",
+    "build": "bun wrangler types && bun astro check --verbose && bunx --bun astro build --verbose",
+    "preview": "bunx --bun astro build && bun wrangler pages dev ./dist",
+    "astro": "astro",
+    "deploy": "bunx --bun astro build && bun wrangler pages deploy ./dist",
+    "cf-typegen": "wrangler types",
+    "tailwindcss": "bunx @tailwindcss/cli@next -i ./src/styles/app.css -o ./src/styles/dist/app.css",
+    "lint": "conc bun:lint:*",
+    "lint:format": "bunx @biomejs/biome format . --write",
+    "lint:fix": "bunx @biomejs/biome check . --fix",
+    "lint:check": "bunx @biomejs/biome check ./* --write --unsafe"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.1",
+    "@types/bun": "latest",
+    "@types/mdx": "^2.0.13",
+    "@types/node": "^22.5.5",
+    "@types/web": "^0.0.163",
+    "editorconfig-checker": "^5.1.8"
+  },
+  "peerDependencies": {
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/mdx": "^3.1.6",
+    "@astrojs/partytown": "^2.1.2",
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/ts-plugin": "^1.10.2",
+    "@tailwindcss/cli": "^4.0.0-alpha.24",
+    "@tailwindcss/postcss": "^4.0.0-alpha.24",
+    "@tailwindcss/vite": "^4.0.0-alpha.24",
+    "@types/react": "^18.3.7",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.15.7",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "concurrently": "^9.0.1",
+    "date-fns": "^4.1.0",
+    "detect-browser-es": "^0.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "reading-time": "^1.5.0",
+    "sharp": "^0.33.5",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss": "^4.0.0-alpha.24"
+  },
+  "trustedDependencies": [
+    "@biomejs/biome"
+  ]
+}
