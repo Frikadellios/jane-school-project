@@ -1,10 +1,28 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
 
 @theme {
-
-  --font-family-display: "Inter", "open-sans";
+  --font-family-display: "Days One", "sans-serif";
 
   --breakpoint-3xl: 1920px;
+
+  --color-primary: "#B9FF66";
+  --color-black: "#000000";
+  --color-white: "#FFFFFF";
+  --color-gray: "#0D0C22";
+  --color-stone: "#231F20";
+  --color-lime: "#B9FF66";
+  --color-zinc-100: "#F3F3F3";
+  --color-zinc-200: "#F0F0F0";
+  --color-zinc-300: "#D9D9D9";
+  --color-zinc-400: "#D8D8D8";
+  --color-zinc-500: "#898989";
+  --color-zinc-600: "#B0B0B0";
+  --color-zinc-700: "#787878";
+  --color-zinc-800: "#292A32";
+  --color-zinc-900: "#191A23";
+
+  --color-brand-background: oklch(88.27% 0.066 359.29);
 
   --foreground-rgb: oklch(98.3% 0.004 316.6);
   --background-start-rgb: 0, 0, 0;
@@ -98,21 +116,21 @@ body {
 }
 
 .container {
-    margin: 0 auto;
-    padding: 0 2rem;
-    width: 100%;
-  }
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
 
-  @media (min-width: 1400px) {
-    .container {
-      max-width: 1400px;
-    }
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
   }
+}
 
 @font-face {
   font-family: "Inter";
-  src: url("../assets/fonts/inter.woff2") format("woff2");
-  font-weight: normal;
+  src: url("../assets/fonts/DaysOne-Regular.ttf") format("ttf");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }

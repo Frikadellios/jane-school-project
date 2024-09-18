@@ -1,0 +1,26 @@
+{
+  "lang": "en",
+  "title": "DevOpSick",
+  "description": "First Time I was afraid blog 🖊️",
+  "author": "Hrihorii Ilin",
+  "favicon": "/favicon.ico",
+  "ogImage": "/og.png",
+  "webmanifest": {
+    "themeColor": "#8b5cf6",
+    "bgColor": "#222222",
+    "appleTouchIcon": "/webmanifest/appleTouchIcon.png",
+    "androidTouchIcon": "/webmanifest/androidTouchIcon.png",
+    "androidSplashIcon": "/webmanifest/androidSplashIcon.png"
+  },
+  "comments": {
+    "label": "Comments",
+    "icon": "telegram"
+  },
+  "socials": [
+    {
+      "label": "Telegram",
+      "icon": "telegram",
+      "link": "https://t.me/frikadellios"
+    }
+  ]
+}

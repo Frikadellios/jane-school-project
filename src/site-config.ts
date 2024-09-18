@@ -8,7 +8,7 @@ interface SiteConfig {
   paginationSize: number
 }
 
-export const SITE = 'https://jane-school-project.pages.dev'
+export const SITE = 'https://jane-school.pages.dev'
 
 export const siteConfig: SiteConfig = {
   author: 'Hrihorii Ilin <devopsick@pm.me>', // Site author

@@ -5,7 +5,6 @@ import TailwindIndicator from '@/components/layout/tailwind-indicator.astro'
 import { cn } from '@/lib/utils'
 import '@/styles/globals.css'
 
-
 type Props = {
   title: string
   description?: string
@@ -15,6 +14,7 @@ type Props = {
 }
 
 import BaseHead from '@/components/BaseHead.astro'
+import Navbar from '@/components/Navbar.astro'
 import ViewTransitions from 'astro/components/ViewTransitions.astro'
 
 const { title, description, mainClass, bodyClass } = Astro.props as Props
@@ -23,23 +23,14 @@ const { title, description, mainClass, bodyClass } = Astro.props as Props
 <!doctype html>
 <html lang='en' class="bg-trancperent text-foreground scroll-smooth">
 	<head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-        <meta name="generator" content={Astro.generator} />
-        <meta name="title" content={title} />
-        <meta name="description" content={description} />
-        <link rel="sitemap" href="/sitemap-index.xml" />
-        <meta name="robots" content="index, follow" />
-        <meta name="googlebot" content="index, follow" />
-        <link rel="alternate" type="application/rss+xml" title={title} href={`${Astro.site}rss.xml`}/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 		<BaseHead title={title} description={description || ''} />
         <ViewTransitions />
 		<ProviderAnimations />
 	</head>
 	<body class={cn('flex flex-col font-sans antialiased min-h-screen', bodyClass)}>
 		<Container>
+			<Navbar />
 			<main class={cn(mainClass)}>
 				<slot />
 				<TailwindIndicator />
@@ -48,12 +39,6 @@ const { title, description, mainClass, bodyClass } = Astro.props as Props
 		<style is:global>
 			body {
 				font-family: "Days One", sans-serif;
-		        margin: 0;
-	        }
-            main {
-		        margin: auto;
-		        padding: 1em;
-		        max-width: auto;
 	        }
 			img {
 				content-visibility: auto;
@@ -61,3 +46,7 @@ const { title, description, mainClass, bodyClass } = Astro.props as Props
 		</style>
 	</body>
 </html>
+
+<script>import "preline/dist/preline.js";</script>
+<script src="../../node_modules/preline/preline.js"></script>
+
