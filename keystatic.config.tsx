@@ -9,14 +9,10 @@ import { t } from '@/utils'
 const { categories, postPage, posts, postsGrid, tags, uiAdmin, uiWebsite, website } = schemas
 
 export default config({
-  storage: import.meta.env.DEV
-    ? {
-        kind: 'local'
-      }
-    : {
-        kind: 'github',
-        repo: 'JaneSchool/jane-school-project'
-      },
+  storage: {
+    kind: 'github',
+    repo: 'JaneSchool/jane-school-project'
+  },
   ui: {
     brand: { name: configs.website.title },
     navigation: {
