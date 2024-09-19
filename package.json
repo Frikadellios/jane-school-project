@@ -28,6 +28,7 @@
     "astro": "astro",
     "deploy": "bunx --bun astro build && bun wrangler pages deploy ./dist",
     "tailwindcss": "bunx @tailwindcss/cli@next -i ./src/styles/app.css -o ./src/styles/dist/app.css",
+    "builder": "conc bun:lint:* && bun astro check --verbose && bunx --bun astro build --verbose",
     "lint": "conc bun:lint:*",
     "lint:format": "bunx @biomejs/biome format . --write",
     "lint:fix": "bunx @biomejs/biome check . --fix",

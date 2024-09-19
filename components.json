@@ -1,14 +1,14 @@
 {
-    "style": "default",
-    "rsc": true,
-    "tailwind": {
-      "config": "tailwind.config.mjs",
-      "css": "src/globals.css",
-      "baseColor": "slate",
-      "cssVariables": true
-    },
-    "aliases": {
-      "components": "@/components",
-      "utils": "@/lib/utils"
-    }
+  "style": "default",
+  "rsc": true,
+  "tailwind": {
+    "config": "tailwind.config.mjs",
+    "css": "src/globals.css",
+    "baseColor": "slate",
+    "cssVariables": true
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
   }
+}
