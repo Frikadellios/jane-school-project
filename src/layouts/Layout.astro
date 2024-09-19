@@ -4,6 +4,7 @@ import ProviderAnimations from '@/components/layout/provider-animations.astro'
 import TailwindIndicator from '@/components/layout/tailwind-indicator.astro'
 import { cn } from '@/lib/utils'
 import '@/styles/globals.css'
+import Footer from '@/components/Footer.astro'
 
 type Props = {
   title: string
@@ -35,17 +36,22 @@ const { title, description, mainClass, bodyClass } = Astro.props as Props
 				<slot />
 				<TailwindIndicator />
 			</main>
+			
 		</Container>
-		<style is:global>
-			body {
-				font-family: "Days One", sans-serif;
-	        }
-			img {
-				content-visibility: auto;
-			}
-		</style>
+		
+		<Footer />
 	</body>
 </html>
+
+
+<style is:global>
+	body {
+		font-family: "Days One", sans-serif;
+	}
+	img {
+		content-visibility: auto;
+	}
+</style>
 
 <script>import "preline/dist/preline.js";</script>
 <script src="../../node_modules/preline/preline.js"></script>

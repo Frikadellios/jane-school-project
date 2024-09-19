@@ -7,6 +7,8 @@ import sitemap from '@astrojs/sitemap'
 import keystaticAstro from '@keystatic/astro'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
+import rehypeExternalLinks from 'rehype-external-links'
+import { remarkReadingTime } from './src/utils/readTime'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://jane-school.pages.dev',
@@ -35,7 +37,27 @@ export default defineConfig({
     markdoc({ allowHTML: true }),
     keystaticAstro()
   ],
-
+  markdown: {
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          content: {
+            type: 'text',
+            value: ' 🔗'
+          },
+          target: '_blank',
+          rel: ['nofollow', 'noreferrer']
+        }
+      ]
+    ],
+    remarkPlugins: [remarkReadingTime],
+    shikiConfig: {
+      theme: 'github-dark-dimmed',
+      wrap: true
+    },
+    gfm: true
+  },
   output: 'hybrid',
   adapter: cloudflare({
     imageService: 'compile',
