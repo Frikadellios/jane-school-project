@@ -1,0 +1,58 @@
+---
+import ProviderAnimations from '@/components/layout/provider-animations.astro'
+import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+import SquareLines from "../components/square-lines.astro";
+import '@/assets/css/main.css'
+import BaseHead from "@/components/BaseHead.astro";
+import ViewTransitions from 'astro/components/ViewTransitions.astro'
+
+type Props = {
+  title: string
+  description?: string
+  lang?: string
+  mainClass?: string
+  bodyClass?: string
+}
+
+const { title, description } = Astro.props as Props
+---
+
+<!doctype html>
+<html lang='en' class="bg-neutral-950 text-foreground scroll-smooth">
+	<head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+		<BaseHead title={title} description={description || ''} />
+    <ViewTransitions />
+		<ProviderAnimations />
+		<script src="../assets/css/main.css"></script>
+		<Fragment set:html={import.meta.env.HEADER_INJECT} />
+	</head>
+    <script is:inline>
+      if (typeof Storage !== 'undefined') {
+        if (
+          localStorage.getItem('dark_mode') &&
+          localStorage.getItem('dark_mode') == 'true'
+        ) {
+          document.documentElement.classList.add('dark')
+        }
+      }
+    </script>
+
+    <style>
+      .prose img {
+        border-radius: 20px;
+      }
+    </style>
+    <script src="../assets/css/main.css"></script>
+    <Fragment set:html={import.meta.env.HEADER_INJECT} />
+  </head>
+  <body class="antialiased bg-neutral-950">
+    <SquareLines />
+    <Header />
+    <slot />
+    <Footer />
+    <script src="../assets/js/main.js"></script>
+    <Fragment set:html={import.meta.env.FOOTER_INJECT} />
+  </body>
+</html>

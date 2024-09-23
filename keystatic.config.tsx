@@ -10,8 +10,7 @@ const { categories, postPage, posts, postsGrid, tags, uiAdmin, uiWebsite, websit
 
 export default config({
   storage: {
-    kind: 'github',
-    repo: 'JaneSchool/jane-school-project'
+    kind: 'local'
   },
   ui: {
     brand: { name: configs.website.title },

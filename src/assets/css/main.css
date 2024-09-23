@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @import url("https://fonts.googleapis.com/css2?family=Days+One&display=swap");
 
 @theme {
@@ -87,6 +88,12 @@
   --animate-move: move 5s linear infinite;
 }
 
+.days-one-regular {
+  font-family: "Days One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 :where(.prose) {
   :where(h1, h2, h3, h4, p, figure, blockquote, dl, dd, ul, ol) {
     margin-top: 1em;
@@ -167,46 +174,6 @@ p {
   }
 }
 
-.days-one-regular {
-  font-family: "Days One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-header {
-  background-color: transparent;
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-}
-
-.border {
-  border-color: oklch(35.6% 0.174 312.18 / 25%);
-}
-
-body {
-  transition: background-color 0.5s ease;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  font-synthesis-weight: none;
-  text-rendering: optimizeLegibility;
-  font-feature-settings: "rlig" 1, "calt" 1;
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-}
-
-.container {
-  margin: 0 auto;
-  padding: 0 2rem;
-  width: 100%;
-}
-
-@media (min-width: 1400px) {
-  .container {
-    max-width: 1400px;
-  }
-}
-
 @font-face {
   font-family: "DaysOne";
   src: url("../assets/fonts/DaysOne-Regular.ttf") format("ttf");
@@ -215,62 +182,65 @@ body {
   font-display: swap;
 }
 
-@media screen and (max-width: 768px) {
-  :root {
-    --velocidad-marquee: 5s;
+.prose img {
+    border-radius: 30px;
   }
-}
-
-@property --tw-outline-style {
-  syntax: "<custom-ident>";
-  inherits: false;
-  initial-value: solid;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  
+  #sun {
+    transform: translate3d(0, 0px, 0);
   }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
+  
+  #moon {
+    transform: translate3d(0, 0px, 0);
   }
-}
-
-@keyframes accordion-down {
-  0% {
-    height: 0;
+  
+  #darkToggle:hover #sun {
+    transform: translate3d(0, 10px, 0);
   }
-  100% {
-    height: var(--radix-accordion-content-height);
+  
+  #darkToggle:hover #moon {
+    transform: translate3d(0, 10px, 0);
   }
-}
-
-@keyframes shadow-slide {
-  from {
-    background: hsl(var(--primary) / 20%);
-    right: 460px;
+  
+  html.dark #darkToggle:hover .horizon {
+    border-color: #718096 !important;
   }
-  to {
-    background: hsl(var(--primary) / 80%);
-    right: 160px;
+  
+  .horizon .setting {
+    animation: 1s ease 0s 1 setting;
   }
-}
-
-@keyframes accordion-up {
-  0% {
-    height: var(--radix-accordion-content-height);
+  
+  .horizon .rising {
+    animation: 1s ease 0s 1 rising;
   }
-  100% {
-    height: 0;
+  
+  @keyframes setting {
+    0% {
+      transform: translate3d(0, 10px, 0)
+    }
+  
+    40% {
+      transform: translate3d(0, -2px, 0)
+    }
+  
+    to {
+      transform: translate3d(0, 30px, 0)
+    }
   }
-}
-
-@keyframes move {
-  0% {
-    transform: translateX(-200px);
+  
+  @keyframes rising {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 30px, 0)
+    }
+  
+    40% {
+      opacity: 1;
+      transform: translate3d(0, -2px, 0)
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 10, 0)
+    }
   }
-  100% {
-    transform: translateX(200px);
-  }
-}
