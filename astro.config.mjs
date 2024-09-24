@@ -6,10 +6,10 @@ import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import keystaticAstro from '@keystatic/astro'
 import tailwindcss from '@tailwindcss/vite'
+import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import { remarkReadingTime } from './src/utils/readTime'
-import icon from 'astro-icon';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://jane-school.pages.dev',
@@ -25,12 +25,20 @@ export default defineConfig({
   experimental: {
     contentCollectionCache: true
   },
-  integrations: [react(), mdx(), sitemap(), partytown({
-    config: {
-      debug: false,
-      forward: ['dataLayer.push']
-    }
-  }), markdoc({ allowHTML: true }), keystaticAstro(), icon()],
+  integrations: [
+    react(),
+    mdx(),
+    sitemap(),
+    partytown({
+      config: {
+        debug: false,
+        forward: ['dataLayer.push']
+      }
+    }),
+    markdoc({ allowHTML: true }),
+    keystaticAstro(),
+    icon()
+  ],
   markdown: {
     rehypePlugins: [
       [

@@ -2,21 +2,22 @@
 import { getCollection } from 'astro:content'
 import Container from '@/components/layout/container.astro'
 import AnimatedLogoCloud from '@/components/react/animated-logo-cloud'
+import { HeroScrollDemo } from '@/components/react/container-scroll'
 import FeaturesWithHeading from '@/components/react/features'
 import TestimonialCarousel from '@/components/react/testimonials'
+import BentoGrid from '@/components/sections/bentogrid.astro'
+import Features from '@/components/sections/features.astro'
+import InfoLanding from '@/components/sections/info-landing.astro'
+import Testimonials from '@/components/sections/testimonials.astro'
+import { infos } from '@/configs/landing'
 import Layout from '@/layouts/Layout.astro'
-
-import BentoGrid from "@/components/sections/bentogrid.astro";
-import Features from "@/components/sections/features.astro";
-import InfoLanding from "@/components/sections/info-landing.astro";
-import Testimonials from "@/components/sections/testimonials.astro";
-import { infos } from "@/configs/landing";
 
 const posts = await getCollection('posts')
 ---
 
 <Layout title="Welcome to Astro.">
 		<Container> 
+			<HeroScrollDemo client:visible />
 			<BentoGrid />
   			<InfoLanding data={infos[0]} reverse={true} />
   			<Features />

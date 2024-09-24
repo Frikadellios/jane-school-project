@@ -1,15 +1,15 @@
 ---
-import { Image } from "astro:assets";
-import { cn } from "@/lib/utils";
-import type { InfoLdg } from "@/types";
-import { Icon } from "astro-icon/components";
+import { Image } from 'astro:assets'
+import { cn } from '@/lib/utils'
+import type { InfoLdg } from '@/types'
+import { Icon } from 'astro-icon/components'
 
 interface Props {
-  reverse?: boolean;
-  data: InfoLdg;
+  reverse?: boolean
+  data: InfoLdg
 }
 
-const { reverse, data } = Astro.props;
+const { reverse, data } = Astro.props
 ---
 
 <div class="py-16 sm:py-20">

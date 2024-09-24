@@ -113,7 +113,6 @@
   }
 }
 
-
 .prose code {
   font-size: var(--font-size-base, 1rem /* 16px */);
   line-height: var(--font-size-base--line-height, 1.5rem /* 24px */);
@@ -127,7 +126,6 @@ h1 {
   letter-spacing: var(--letter-spacing-tight, -0.025em);
 }
 
-
 h2 {
   margin-top: var(--spacing-10, 2.5rem /* 40px */);
   scroll-margin: var(--spacing-20, 5rem /* 80px */);
@@ -139,31 +137,31 @@ h2 {
 }
 
 h3 {
- margin-top: var(--spacing-8, 2rem /* 40px */);
- scroll-margin: var(--spacing-20, 5rem /* 80px */);
- padding-bottom: var(--spacing-2, 0.5rem /* 8px */);
- font-size: var(--font-size-2xl, 1.5rem /* 36px */);
- line-height: var(--font-size-2xl--line-height, 2.0rem /* 40px */);
- font-weight: 600;
- letter-spacing: var(--letter-spacing-tight, -0.025em);
+  margin-top: var(--spacing-8, 2rem /* 40px */);
+  scroll-margin: var(--spacing-20, 5rem /* 80px */);
+  padding-bottom: var(--spacing-2, 0.5rem /* 8px */);
+  font-size: var(--font-size-2xl, 1.5rem /* 36px */);
+  line-height: var(--font-size-2xl--line-height, 2.0rem /* 40px */);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-tight, -0.025em);
 }
 
 h4 {
- margin-top: var(--spacing-8, 2rem /* 40px */);
- scroll-margin: var(--spacing-20, 5rem /* 80px */);
- padding-bottom: var(--spacing-2, 0.5rem /* 8px */);
- font-size: var(--font-size-xl, 1.25rem /* 36px */);
- line-height: var(--font-size-xl--line-height, 1.75rem /* 40px */);
- font-weight: 600;
- letter-spacing: var(--letter-spacing-tight, -0.025em);
+  margin-top: var(--spacing-8, 2rem /* 40px */);
+  scroll-margin: var(--spacing-20, 5rem /* 80px */);
+  padding-bottom: var(--spacing-2, 0.5rem /* 8px */);
+  font-size: var(--font-size-xl, 1.25rem /* 36px */);
+  line-height: var(--font-size-xl--line-height, 1.75rem /* 40px */);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-tight, -0.025em);
 }
 
 p {
   line-height: var(--font-size-xl--line-height, 1.75rem /* 40px */);
   .\[\&\:not\(\:first-child\)\]\:mt-6 {
-      &:not(:first-child) {
-          margin-top: var(--spacing-6, 1.5rem /* 24px */);
-      }
+    &:not(:first-child) {
+      margin-top: var(--spacing-6, 1.5rem /* 24px */);
+    }
   }
 }
 

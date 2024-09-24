@@ -1,15 +1,15 @@
 ---
-import { getCollection } from "astro:content";
-const allPosts = await getCollection("post");
+import { getCollection } from 'astro:content'
+const allPosts = await getCollection('post')
 
-const { count } = Astro.props;
+const { count } = Astro.props
 
 const postsLoop = allPosts.slice(0, count).map((post) => {
-	return {
-		...(post.data || {}),
-		link: `/post/${post.slug}`,
-	};
-});
+  return {
+    ...(post.data || {}),
+    link: `/post/${post.slug}`
+  }
+})
 ---
 
 {
