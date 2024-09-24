@@ -33,3 +33,16 @@ export type Socials = {
   TEXT: string
   HREF: string
 }[]
+
+export type InfoList = {
+  icon: string
+  title: string
+  description: string
+}
+
+export type InfoLdg = {
+  title: string
+  image: string
+  description: string
+  list: InfoList[]
+}

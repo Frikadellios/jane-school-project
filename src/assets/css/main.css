@@ -86,7 +86,12 @@
   --animate-accordion-down: accordion-down 200ms ease-in-out;
   --animate-accordion-up: accordion-up 200ms ease-in-out;
   --animate-move: move 5s linear infinite;
+  --animate-buttonheartbeat: buttonheartbeat 2s infinite ease-in-out;
+  --animate-logo-cloud: logo-cloud 30s linear infinite;
+  
 }
+  
+
 
 .days-one-regular {
   font-family: "Days One", sans-serif;
@@ -244,3 +249,28 @@ p {
       transform: translate3d(0, 10, 0)
     }
   }
+
+  @keyframes buttonheartbeat {
+    0% {
+      box-shadow: 0 0 0 0 rgba(220, 38, 38, 1); /* Replaced with a valid red color */
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 0 7px rgba(220, 38, 38, 0); /* Replaced with a valid red color */
+      transform: scale(1.05);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); /* Replaced with a valid red color */
+      transform: scale(1);
+    }
+  }
+
+@keyframes logo-cloud {
+      from { 
+        transform: translateX(0); 
+      }
+       to { 
+        transform: translateX(calc(-100% - 4rem)); 
+      }
+     }
+   

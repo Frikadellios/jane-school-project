@@ -1,38 +1,30 @@
 ---
 import { getCollection } from 'astro:content'
-import Card from '@/components/Card.astro'
 import Container from '@/components/layout/container.astro'
+import AnimatedLogoCloud from '@/components/react/animated-logo-cloud'
+import FeaturesWithHeading from '@/components/react/features'
+import TestimonialCarousel from '@/components/react/testimonials'
 import Layout from '@/layouts/Layout.astro'
+
+import BentoGrid from "@/components/sections/bentogrid.astro";
+import Features from "@/components/sections/features.astro";
+import InfoLanding from "@/components/sections/info-landing.astro";
+import Testimonials from "@/components/sections/testimonials.astro";
+import { infos } from "@/configs/landing";
 
 const posts = await getCollection('posts')
 ---
 
 <Layout title="Welcome to Astro.">
-	<Container> 
-
-		<h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			Check out the <code>src/pages</code> directory to get started.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<section>
-				{
-				  posts?.map((post: { slug: string; data: { title: string } }) => (
-					<Card
-					  href={`/${post.slug}`}
-					  title={post.data.title}
-					  body=""
-					>
-					  <h2>
-						<a href={`/${post.slug}`}>{post.data.title}</a>
-					  </h2>
-					</Card>
-				  ))
-				}
-			  </section>
-		</ul>
-	</Container>
+		<Container> 
+			<BentoGrid />
+  			<InfoLanding data={infos[0]} reverse={true} />
+  			<Features />
+  			<Testimonials />
+			<FeaturesWithHeading client:visible />
+			<AnimatedLogoCloud client:visible />
+			<TestimonialCarousel client:visible />
+		</Container>
 </Layout>
 
 <style>
