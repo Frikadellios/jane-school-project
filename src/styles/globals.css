@@ -69,19 +69,18 @@
   --animate-accordion-up: accordion-up 200ms ease-in-out;
   --animate-move: move 5s linear infinite;
   --animate-spotlight: spotlight 2s ease .75s 1 forwards;
-
 }
 
 @keyframes spotlight {
-    0% {
-      opacity: 0;
-      transform: translate(-72%, -62%) scale(0.5);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(-50%,-40%) scale(1);
-    }
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
   }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
+}
 
 :where(.prose) {
   :where(h1, h2, h3, h4, p, figure, blockquote, dl, dd, ul, ol) {
@@ -114,7 +113,7 @@
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
 }
- 
+
 .no-visible-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -152,7 +151,6 @@ h3 {
   letter-spacing: var(--letter-spacing-tight, -0.025em);
 }
 
-
 h4 {
   margin-top: var(--spacing-8, 2rem /* 40px */);
   scroll-margin: var(--spacing-20, 5rem /* 80px */);
@@ -169,7 +167,6 @@ h5 {
   font-weight: 600;
   letter-spacing: var(--letter-spacing-tight, -0.025em);
 }
-
 
 p {
   line-height: var(--font-size-xl--line-height, 1.75rem /* 40px */);

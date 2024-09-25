@@ -4,7 +4,7 @@ const useCanvasCursor = () => {
   let ctx
   let f
   const pos = {}
-  const lines = []
+  let lines = []
   const E = {
     debug: true,
     friction: 0.5,
@@ -70,13 +70,13 @@ const useCanvasCursor = () => {
       }
     },
     draw: function () {
-      var e,
-        t,
-        n = this.nodes[0].x,
-        i = this.nodes[0].y
+      let e
+      let t
+      let n = this.nodes[0].x
+      let i = this.nodes[0].y
       ctx.beginPath()
       ctx.moveTo(n, i)
-      for (var a = 1, o = this.nodes.length - 2; a < o; a++) {
+      for (let a = 1, o = this.nodes.length - 2; a < o; a++) {
         e = this.nodes[a]
         t = this.nodes[a + 1]
         n = 0.5 * (e.x + t.x)
@@ -94,7 +94,7 @@ const useCanvasCursor = () => {
   function onMousemove(e) {
     function o() {
       lines = []
-      for (var e = 0; e < E.trails; e++) lines.push(new Line({ spring: 0.4 + (e / E.trails) * 0.025 }))
+      for (let e = 0; e < E.trails; e++) lines.push(new Line({ spring: 0.4 + (e / E.trails) * 0.025 }))
     }
     function c(e) {
       e.touches
@@ -103,7 +103,7 @@ const useCanvasCursor = () => {
         e.preventDefault()
     }
     function l(e) {
-      1 == e.touches.length && ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY))
+      1 === e.touches.length && ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY))
     }
     document.removeEventListener('mousemove', onMousemove),
       document.removeEventListener('touchstart', onMousemove),

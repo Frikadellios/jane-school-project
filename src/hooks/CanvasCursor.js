@@ -26,7 +26,7 @@ const useCanvasCursor = () => {
       this.spring = e.spring + 0.1 * Math.random() - 0.02
       this.friction = E.friction + 0.01 * Math.random() - 0.002
       this.nodes = []
-      for (var t, n = 0; n < E.size; n++) {
+      for (let t, n = 0; n < E.size; n++) {
         t = new Node()
         t.x = pos.x
         t.y = pos.y
@@ -34,11 +34,11 @@ const useCanvasCursor = () => {
       }
     },
     update: function () {
-      var e = this.spring,
-        t = this.nodes[0]
+      let e = this.spring
+      let t = this.nodes[0]
       t.vx += (pos.x - t.x) * e
       t.vy += (pos.y - t.y) * e
-      for (var n, i = 0, a = this.nodes.length; i < a; i++)
+      for (let n, i = 0, a = this.nodes.length; i < a; i++)
         (t = this.nodes[i]),
           0 < i &&
             ((n = this.nodes[i - 1]),
@@ -53,13 +53,13 @@ const useCanvasCursor = () => {
           (e *= E.tension)
     },
     draw: function () {
-      var e,
-        t,
-        n = this.nodes[0].x,
-        i = this.nodes[0].y
+      let e
+      let t
+      let n = this.nodes[0].x
+      let i = this.nodes[0].y
       ctx.beginPath()
       ctx.moveTo(n, i)
-      for (var a = 1, o = this.nodes.length - 2; a < o; a++) {
+      for (let a = 1, o = this.nodes.length - 2; a < o; a++) {
         e = this.nodes[a]
         t = this.nodes[a + 1]
         n = 0.5 * (e.x + t.x)
@@ -77,7 +77,7 @@ const useCanvasCursor = () => {
   function onMousemove(e) {
     function o() {
       lines = []
-      for (var e = 0; e < E.trails; e++) lines.push(new Line({ spring: 0.4 + (e / E.trails) * 0.025 }))
+      for (let e = 0; e < E.trails; e++) lines.push(new Line({ spring: 0.4 + (e / E.trails) * 0.025 }))
     }
     function c(e) {
       e.touches
@@ -86,7 +86,7 @@ const useCanvasCursor = () => {
         e.preventDefault()
     }
     function l(e) {
-      1 == e.touches.length && ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY))
+      1 === e.touches.length && ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY))
     }
     document.removeEventListener('mousemove', onMousemove),
       document.removeEventListener('touchstart', onMousemove),
@@ -103,9 +103,9 @@ const useCanvasCursor = () => {
       ctx.globalCompositeOperation = 'source-over'
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
       ctx.globalCompositeOperation = 'lighter'
-      ctx.strokeStyle = 'hsla(' + Math.round(f.update()) + ',50%,50%,0.2)'
+      ctx.strokeStyle = `hsla(${Math.round(f.update())},50%,50%,0.2)`
       ctx.lineWidth = 1
-      for (var e, t = 0; t < E.trails; t++) {
+      for (let e, t = 0; t < E.trails; t++) {
         ;(e = lines[t]).update()
         e.draw()
       }
@@ -119,19 +119,19 @@ const useCanvasCursor = () => {
     ctx.canvas.height = window.innerHeight
   }
 
-  var ctx,
-    f,
-    e = 0,
-    pos = {},
-    lines = [],
-    E = {
-      debug: true,
-      friction: 0.5,
-      trails: 20,
-      size: 50,
-      dampening: 0.25,
-      tension: 0.98
-    }
+  let ctx
+  let f
+  let e = 0
+  const pos = {}
+  let lines = []
+  const E = {
+    debug: true,
+    friction: 0.5,
+    trails: 20,
+    size: 50,
+    dampening: 0.25,
+    tension: 0.98
+  }
   function Node() {
     this.x = 0
     this.y = 0
