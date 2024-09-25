@@ -1,6 +1,5 @@
 'use client'
 import { Tabs } from './ui/tabs'
-import '@/assets/animated-svg/animated.css'
 
 export function TabsDemo() {
   const tabs = [

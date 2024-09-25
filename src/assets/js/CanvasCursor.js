@@ -98,11 +98,17 @@ const useCanvasCursor = () => {
     }
     function c(e) {
       e.touches
-        ? ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY))
-        : ((pos.x = e.clientX), (pos.y = e.clientY)),
+        ? // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
+          // biome-ignore lint/style/noCommaOperator: <explanation>
+          ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY))
+        : // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
+          // biome-ignore lint/style/noCommaOperator: <explanation>
+          ((pos.x = e.clientX), (pos.y = e.clientY)),
         e.preventDefault()
     }
     function l(e) {
+      // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
+      // biome-ignore lint/style/noCommaOperator: <explanation>
       1 === e.touches.length && ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY))
     }
     document.removeEventListener('mousemove', onMousemove),
