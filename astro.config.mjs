@@ -7,13 +7,16 @@ import sitemap from '@astrojs/sitemap'
 import keystaticAstro from '@keystatic/astro'
 import tailwindcss from '@tailwindcss/vite'
 import icon from 'astro-icon'
-import { defineConfig } from 'astro/config'
+import { defineConfig, passthroughImageService } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import { remarkReadingTime } from './src/utils/readTime'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://jane-school.pages.dev',
   vite: {
+    ssr: {
+      external: ['node:buffer']
+    },
     build: {
       chunkSizeWarningLimit: 2000
     },
@@ -40,8 +43,8 @@ export default defineConfig({
         defaultLocale: 'uk',
         locales: {
           en: 'en',
-          ru: 'ru-UA',
-          uk: 'uk-UA'
+          ru: 'ru',
+          uk: 'uk'
         }
       }
     }),
@@ -77,8 +80,9 @@ export default defineConfig({
     gfm: true
   },
   output: 'hybrid',
+  image: { service: passthroughImageService() },
   adapter: cloudflare({
-    imageService: 'compile',
+    imageService: 'cloudflare',
     platformProxy: {
       enabled: true
     }

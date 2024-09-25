@@ -1,11 +1,12 @@
 ---
-import { DEFAULT_LANGUAGE, LOCALES, defaultLocale } from '@/i18n/config'
-const [, , ...path] = Astro.url.pathname.split('/')
+import { DEFAULT_LANGUAGE, LOCALES } from "@/i18n/config"
+
+const [, , ...path] = Astro.url.pathname.split("/")
 ---
 
 <link
   rel="alternate"
-  href={`${Astro.url.origin}${defaultLocale}/${path.join("/")}`}
+  href={`${Astro.url.origin}${DEFAULT_LANGUAGE}/${path.join("/")}`}
   hreflang="x-default"
 />
 {
