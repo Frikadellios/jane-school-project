@@ -15,8 +15,7 @@ export default defineConfig({
   site: 'https://jane-school.pages.dev',
   vite: {
     build: {
-      chunkSizeWarningLimit: 2000,
-      cssMinify: 'lightningcss'
+      chunkSizeWarningLimit: 2000
     },
     plugins: [tailwindcss()],
     define: {
