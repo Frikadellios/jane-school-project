@@ -1,12 +1,25 @@
 ---
+import { fade } from 'astro:transitions'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import { LANGUAGES_ARRAY } from '@/i18n/utils'
 import Button from '../../components/button.astro'
 import Projects from '../../components/home/projects.astro'
 import Separator from '../../components/home/separator.astro'
 import Writings from '../../components/home/writings.astro'
-import Layout from '../../layouts/main.astro'
+import Layout from '../../layouts/Layout.astro'
+
+export const getStaticPaths = () => {
+  return LANGUAGES_ARRAY.map((lang) => ({
+    params: { lang }
+  }))
+}
+
+export const prerender = true
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
-<Layout title="Kai">
+<Layout title={t('homepage-title')} description={t('homepage-description')} lang={lang} transition:animate={fade({ duration: "0.4s" })}>
   <div
     class="relative z-20 w-full max-w-4xl mx-auto mt-16 px-7 md:mt-24 lg:mt-32 xl:px-0"
   >

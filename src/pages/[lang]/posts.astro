@@ -1,10 +1,24 @@
 ---
+import { fade } from 'astro:transitions'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import { LANGUAGES_ARRAY } from '@/i18n/utils'
 import PageHeading from '../../components/page-heading.astro'
 import PostsLoop from '../../components/posts-loop.astro'
-import Layout from '../../layouts/main.astro'
+import Layout from '../../layouts/Layout.astro'
+
+
+export const getStaticPaths = () => {
+  return LANGUAGES_ARRAY.map((lang) => ({
+    params: { lang }
+  }))
+}
+
+export const prerender = true
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
-<Layout title="My Writing">
+<Layout title={t('homepage-title')} description={t('homepage-description')} lang={lang} transition:animate={fade({ duration: "0.4s" })}>
   <section class="relative z-20 max-w-2xl mx-auto my-12 px-7 lg:px-0">
     <PageHeading
       title="My Writing"
