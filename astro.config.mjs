@@ -22,13 +22,29 @@ export default defineConfig({
       'process.env': process.env
     }
   },
+  i18n: {
+    defaultLocale: 'uk',
+    locales: ['en', 'ru', 'uk'],
+    routing: {
+      prefixDefaultLocale: true
+    }
+  },
   experimental: {
     contentCollectionCache: true
   },
   integrations: [
     react(),
     mdx(),
-    sitemap(),
+    sitemap({
+      i18n: {
+        defaultLocale: 'uk',
+        locales: {
+          en: 'en',
+          ru: 'ru-UA',
+          uk: 'uk-UA'
+        }
+      }
+    }),
     partytown({
       config: {
         debug: false,

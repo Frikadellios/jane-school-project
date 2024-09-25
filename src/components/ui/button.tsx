@@ -1,45 +1,56 @@
-const Button = ({
-  link,
-  label,
-  style,
-  size,
-  icon
-}: {
-  link?: string
-  label: string
-  style?: 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error' | 'outline' | 'ghost' | 'link'
-  size?: 'default' | 'large' | 'small' | 'tiny' | 'wide'
-  icon?: React.ReactNode
-}) => {
-  const sizeClasses = {
-    default: '',
-    large: 'btn-lg',
-    small: 'btn-sm',
-    tiny: 'btn-xs',
-    wide: 'btn-wide'
+import * as React from "react"
+import { Slot } from "@radix-ui/react-slot"
+import { cva, type VariantProps } from "class-variance-authority"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = cva(
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8",
+        icon: "h-10 w-10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
   }
-  return (
-    <button
-      type="button"
-      className={`
-          btn 
-          ${style === 'primary' ? 'btn-primary' : ''}
-          ${style === 'secondary' ? 'btn-secondary' : ''}
-          ${style === 'accent' ? 'btn-accent' : ''}
-          ${style === 'info' ? 'btn-info' : ''}
-          ${style === 'success' ? 'btn-success' : ''}
-          ${style === 'warning' ? 'btn-warning' : ''}
-          ${style === 'error' ? 'btn-error' : ''}
-          ${style === 'outline' ? 'btn-outline' : ''}
-          ${style === 'ghost' ? 'btn-ghost' : ''}
-          ${style === 'link' ? 'btn-link' : ''}
-          ${sizeClasses[size as keyof typeof sizeClasses] || ''}
-        `}
-    >
-      {icon && <span className="icon">{icon}</span>}
-      {link ? <a href={link}>{label}</a> : label}
-    </button>
-  )
+)
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean
 }
 
-export default Button
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button"
+    return (
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    )
+  }
+)
+Button.displayName = "Button"
+
+export { Button, buttonVariants }

@@ -45,3 +45,13 @@ export function calculateReadingTime(text: string): string {
   const readTime = Math.ceil(minutes)
   return `${readTime} min read`
 }
+
+export function wait(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+export function extractSegmentURL(path: string) {
+  if (!path) return ''
+  if (path === '/') return null
+  return path.split('/')[1]
+}

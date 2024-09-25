@@ -1,7 +1,0 @@
-links:
-  - text: Blog
-    isDropdown:
-      discriminant: false
-      value:
-        link: /blog
-buttons: []

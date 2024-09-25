@@ -1,0 +1,33 @@
+---
+
+
+import InView from "@/components/ui/in-view";
+---
+
+
+
+      <div class="flex h-[300px] mt-10 items-end justify-center px-4">
+        <InView
+        client:visible
+          variants={{
+            hidden: { opacity: 0, y: 150, filter: "blur(4px)" },
+            visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+          }}
+          viewOptions={{ margin: "0px 0px -320px 0px" }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          <div>
+            <div class="py-6 text-center text-base text-neon-pink font-medium">Scroll down</div>
+            <h1 class="mb-4 text-center text-2xl font-bold text-foreground md:text-3xl xl:text-4xl">
+              Crafting Digital Experiences
+            </h1>
+            <p class="text-balance text-center text-lg leading-[1.5] text-muted-foreground md:text-xl xl:text-2xl">
+              Web development is a symphony of creativity and logic, crafting digital experiences that resonate with
+              users. It's about turning visions into reality, blending design aesthetics with functional prowess. From
+              the elegance of front-end interfaces to the robustness of back-end systems, web development is a testament
+              to human ingenuity, connecting people across the globe through seamless interactions.
+            </p>
+          </div>
+        </InView>
+      </div>
+

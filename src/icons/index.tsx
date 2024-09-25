@@ -8,6 +8,7 @@ export const Icons = {
   tv: Tv2,
   clock: Clock,
   logo: ({ ...props }: LucideProps) => (
+    // biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
       <path
         fill="currentColor"
@@ -40,6 +41,7 @@ export const Icons = {
     </svg>
   ),
   wrenchSrewdriver: ({ ...props }: LucideProps) => (
+    // biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
       <path
         fill="none"

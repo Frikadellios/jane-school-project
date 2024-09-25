@@ -1,0 +1,24 @@
+---
+import SparkleButton  from '@/components/SparkleButtons'
+import { GridBeam }  from './ui/greed-beam'
+
+---
+
+
+  <div class="w-full min-h-[400px] h-auto z-10 bg-grid-white overflow-visible">
+    <GridBeam className="sm:pl-16 bg-grid-white pt-28 pl-4 overflow-visible flex items-center justify-start" client:visible >
+      <div class="grid gap-2">
+        <h1 class="sm:text-5xl text-4xl text-neon-pink font-bold max-w-sm">Hero Section That Converts.</h1>
+        <p class="text-muted-foreground max-w-lg">Beautiful beam which I btw reverse engineered from Aceternity</p>
+      </div>
+      
+      <SparkleButton variant="ghost" text="Sparkle Button" size="lg" client:visible />  
+    </GridBeam>
+  </div>
+
+<style>
+  .container {
+    overflow: visible;
+  }
+
+</style>

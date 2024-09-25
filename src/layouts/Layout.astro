@@ -13,26 +13,41 @@ type Props = {
 }
 
 import BaseHead from '@/components/BaseHead.astro'
-import Footer from '@/components/footer.astro'
+import Footer from '@/components/Footer.astro'
 import Header from '@/components/header.astro'
 import ViewTransitions from 'astro/components/ViewTransitions.astro'
 
 const { title, description, mainClass, bodyClass } = Astro.props as Props
+import CanvasCursor from "@/components/ui/canvas-cursor";
+import { ScrollToTop } from '@/components/ui/scroll-to-top'
+import I18NHeader from '@/i18n/I18nHeaders.astro'
+import I18NHeaders from '@/i18n/I18nHeaders.astro'
+import { getLangFromUrl } from '@/i18n/utils'
+const lang = getLangFromUrl(Astro.url)
 ---
 
+   
+
+
 <!doctype html>
-<html lang='en' class="bg-trancperent text-foreground scroll-smooth">
+<html lang={lang} class="bg-trancperent text-foreground scroll-smooth">
 	<head>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-		<BaseHead title={title} description={description || ''} />
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+		<BaseHead title={title} description={description || ''} lang={lang} />
         <ViewTransitions />
 		<ProviderAnimations />
 		<script src="../assets/css/main.css"></script>
+		<script is:inline type='text/javascript'>document.addEventListener('DOMContentLoaded', function () {window.setTimeout(document.querySelector('svg').classList.add('animated'),1000);})</script>
 		<Fragment set:html={import.meta.env.HEADER_INJECT} />
+		<I18NHeaders />
 	</head>
-	<body class={cn('flex flex-col bg-neutral-950 antialiased min-h-screen', bodyClass)}>
+	<body class={cn('flex flex-col  antialiased min-h-screen', bodyClass)}>
+		<CanvasCursor client:load />
 		<Header />
 			<main class={cn(mainClass)}>
+				<ScrollToTop client:load />
 				<slot />
 				<TailwindIndicator />
 			</main>
@@ -50,6 +65,8 @@ const { title, description, mainClass, bodyClass } = Astro.props as Props
 	.prose img {
         border-radius: 20px;
       }
+
+	  
 </style>
 
 <script>import "preline/dist/preline.js";</script>
