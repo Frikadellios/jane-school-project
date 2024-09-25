@@ -1,12 +1,9 @@
 import cloudflare from '@astrojs/cloudflare'
-import markdoc from '@astrojs/markdoc'
 import mdx from '@astrojs/mdx'
 import partytown from '@astrojs/partytown'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
-import keystaticAstro from '@keystatic/astro'
 import tailwindcss from '@tailwindcss/vite'
-import icon from 'astro-icon'
 import { defineConfig, passthroughImageService } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import { remarkReadingTime } from './src/utils/readTime'
@@ -18,12 +15,11 @@ export default defineConfig({
       external: ['node:buffer']
     },
     build: {
+      minify: false,
+      cssMinify: 'lightningcss',
       chunkSizeWarningLimit: 2000
     },
-    plugins: [tailwindcss()],
-    define: {
-      'process.env': process.env
-    }
+    plugins: [tailwindcss()]
   },
   i18n: {
     defaultLocale: 'uk',
@@ -42,9 +38,9 @@ export default defineConfig({
       i18n: {
         defaultLocale: 'uk',
         locales: {
-          en: 'en',
-          ru: 'ru',
-          uk: 'uk'
+          en: 'en-US',
+          ru: 'ru-UA',
+          uk: 'uk-UA'
         }
       }
     }),
@@ -53,10 +49,7 @@ export default defineConfig({
         debug: false,
         forward: ['dataLayer.push']
       }
-    }),
-    markdoc({ allowHTML: true }),
-    keystaticAstro(),
-    icon()
+    })
   ],
   markdown: {
     rehypePlugins: [
@@ -79,7 +72,7 @@ export default defineConfig({
     },
     gfm: true
   },
-  output: 'hybrid',
+  output: 'server',
   image: { service: passthroughImageService() },
   adapter: cloudflare({
     imageService: 'cloudflare',
