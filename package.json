@@ -23,7 +23,7 @@
     "browserslist": "bunx update-browserslist-db@latest",
     "dev": "bunx --bun astro dev --verbose",
     "start": "bun astro check --verbose && bunx --bun astro dev --verbose",
-    "build": "bunx --bun astro build --verbose",
+    "build": "bunx --bun astro build",
     "preview": "bunx --bun astro build && bun wrangler pages dev ./dist",
     "astro": "astro",
     "deploy": "bunx --bun astro build && bun wrangler pages deploy ./dist",
